@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Days Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h2>Days Calculator Between Two Dates</h2>
+
+    <form method="post">
+    <!--for security from cross-site request forgery-->
+        {% csrf_token %}
+        <label><b>Start Date:</b></label>
+        <input type="date" name="sdate" required placeholder="Enter the Day" style="width: 400px; height: 30px;"><br><br>
+
+        <label><b>End Date:</b></label>
+        <input type="date" name="edate" required placeholder="Enter the Day" style="width: 400px; height: 30px;"><br><br>
+
+        <button type="submit" style="width: 100px; height: 40px;"><b>Calculate</b></button>
+    </form>
+
+    {% if days is not none %}
+        <h3>Total Days: {{ days }}</h3>
+    {% endif %}
+</body>
